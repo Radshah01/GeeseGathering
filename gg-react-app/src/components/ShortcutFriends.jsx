@@ -16,9 +16,13 @@ const ShortcutFriends = () => {
             <ul>
                 {friends.map((friend) => (
                     <li key={friend.id} className="home-friend-tile">
-                        <img src={friend.profilePic} alt={friend.name + " Profile Picture"} style={{width: "90px"}}/>
+                        <img
+                            className="friend-logo"
+                            src={friend.profilePic}
+                            alt={friend.name + " Profile Picture"}
+                        />
                         <span>{friend.name}</span>
-                        <span>{friend.isActive? "Online" : ""}</span>
+                        {friend.isActive?  (<span className="active-icon"/>) : ""}
                     </li>
                 ))}
             </ul>

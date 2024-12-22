@@ -9,11 +9,12 @@
 
 body{
 
-background: linear-gradient(180deg, #868686 0%, #3D3D3D 100%);
+background: linear-gradient(180deg, #232323 0%, #060606 100%);
 background-repeat: no-repeat;
 background-size: cover;
 margin: 0;
-height: 100dvh;
+height: 100vh;
+overflow: hidden;
 }
 
 
@@ -116,14 +117,14 @@ ul, li, a {
 .home-layout{
   margin: 0 400px;
   display: grid;
-  grid-template-columns: 0.5fr 0.5fr ;
+  grid-template-columns: 0.3fr 0.7fr ;
   grid-gap: 40px;
 }
 
 .home-sidebar{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-gap: 40px;
+  grid-template-rows: 0.5fr 0.5fr;
 }
 
 
@@ -133,7 +134,7 @@ ul, li, a {
 
 
 .home-friends{
-  background-color: #303030;
+  background: linear-gradient(180deg, #2a2a2a, #232323) #171717;
   display: flex;
   padding: 25px;
   border-radius: 36px;
@@ -144,34 +145,98 @@ ul, li, a {
 .home-friends-title{
   font-size: 1.8em;
   display: block;
+  margin-bottom: 0.2em;
 }
 
 .home-friend-tile{
   display: flex;
-  flex-direction: row;
-  text-align: center;
   margin: 1em auto;
-  background-color: #414141;
+  padding: 7px 15px 7px 10px;
+  background-color: #292929;
   border-radius: 36px;
+  border:solid 3px #434343;
+
 }
 
-.home-friend-tile img{
-padding: 5px 0 3px;
-height: 70px;
+.home-friend-tile .friend-logo{
+  padding: 5px 0 3px;
+  height: 40px;
+  width: auto;
+  margin: 0;
 }
 
 .home-friend-tile span{
   margin: auto 6px;
   text-align: left;
+  font-size: 1.2em;
+}
+
+.home-friend-tile .active-icon{
+  background: #3CFF76;
+  white-space: nowrap;
+  margin-left: auto;
+  height: 20px;
+  width: 22px;
+  border-radius: 50%;
 }
 
 .home-friends a{
-  margin: 0 auto;
+  margin: 0.5em auto 0px;
   text-decoration: underline;
 }
+
+/* Dashboard */
+.home-dashboard{
+  background: linear-gradient(180deg, #2a2a2a, #232323) #171717;
+  display: flex;
+  border-radius: 36px;
+  flex-direction: column;
+
+}
+
+.home-dashboard-title{
+  padding: 25px;
+  font-size: 1.8em;
+  display: block;
+  margin-bottom: 0.1em;
+
+}
+
+.home-tracker{
+  background-color: #3F3F3F;
+  padding: 12px 25px;
+  height: 680px;
+  margin-bottom: 0.3em;
+}
+
+.home-dashboard-subheadings{
+  display: block;
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+.home-shortcuts{
+  padding: 12px 25px;
+}
+
+.shortcut-buttons{
+  margin-top: 10px;
+margin-right: 10px;
+font-size: 1.1em;
+background: #575757;
+border-radius: 32px;
+border: none;
+padding: 15px 20px;
+}
+
 /* Footer */
 .footer{
+  position: fixed;
+  bottom: 2.4em;
+  left: 50%; 
+  transform: translateX(-50%); 
   text-align: center;
+
 }
 
 @media screen and (max-width: 1850px) {
@@ -186,7 +251,7 @@ height: 70px;
   border-radius: 72px;
   border:none;
   flex-direction: row; */
-  width: 70vw;
+  width: 45vw;
   font-size: 1em;
 }
 
@@ -195,7 +260,7 @@ height: 70px;
 }
 
 .home-layout{
-  margin: 0 80px;
+  margin: 0 250px;
   display: grid;
   grid-template-columns: 0.3fr 0.7fr ;
   grid-gap: 40px;

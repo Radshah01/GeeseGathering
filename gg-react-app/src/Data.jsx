@@ -9,7 +9,7 @@ export const UserData = [
     },
     {
         id: 2,
-        hour: "1-2AM",
+        hour: "1 - 2AM",
         progTimeSpent: 0,
         mathTimeSpent: 0,
         electiveTimeSpent: 0,

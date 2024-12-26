@@ -152,6 +152,13 @@ tr{
   margin-bottom: 0.2em;
 }
 
+.home-friends:hover .home-friends-title{
+  background: linear-gradient(90deg, #3CFF76 0%, #028CF3 100%);
+   -webkit-background-clip: text;
+-webkit-text-fill-color: transparent;  
+width: fit-content;
+
+}
 .home-friend-tile{
   display: flex;
   margin: 1em auto;
@@ -205,10 +212,19 @@ tr{
 
 }
 
+.home-dashboard:hover .home-dashboard-title{
+
+background: linear-gradient(90deg, #3CFF76 0%, #028CF3 100%);
+  -webkit-background-clip: text;
+-webkit-text-fill-color: transparent; 
+width: 200px;
+
+
+}
 .home-tracker{
   background-color: #3F3F3F;
-  padding: 10px 25px;
-  height: 673px;
+  padding: 10px 25px 0;
+  height: auto;
 }
 
 .home-dashboard-subheadings{
@@ -229,39 +245,66 @@ tr{
 }
 
 .home-shortcuts{
-  padding: 12px 25px;
+  margin: auto 25px;
+  padding: auto 0;
 }
 
 .shortcut-buttons{
-  margin-top: 10px;
-margin-right: 10px;
-font-size: 1.1em;
+  float: right;
+  margin-left: 25px;
+font-size: 1em;
 background: #575757;
 border-radius: 32px;
 border: none;
 padding: 15px 20px;
 }
 
+/* Tracker Results */
+.tracker-result{
+  font-size: 2.5em;
+  margin: 2px 0 5px; 
+}
 
+.tracker-result-hour{
+  background: linear-gradient(90deg, #8ef0ab 0%, #00dd42 100%);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;  
+  width: fit-content;
+}
 
+.tracker-result-minute{
+  background: linear-gradient(90deg, #75c3ff 0%, #028CF3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;  
+  width: fit-content;
+}
+
+/* Tracker Stacked Bar Chart */
+.tracker-analytics{
+  width: auto;
+  height: 180px;
+}
 
 /* Tracker Topic Tiles */
+.tile-layout{
+  margin: 25px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 25px
+}
+
 .tracker-topic-tile {
   display: inline-block;
   background: #303030;
   padding:15px;
   border-radius: 16px;
-
-  width: 370px;
-  margin-bottom: 2px;
-  margin-right: 2.5px;
-  margin-left: 2.5px;
 }
 
 .tracker-topic-tile-header{
   display: block;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.25em;
   margin-bottom: 1em;
 }
 
@@ -307,7 +350,7 @@ padding: 15px 20px;
 
 .tracker-topic-tile-content-table-thead th{
   font-weight: 100;
-  font-size: 15px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.35);
   padding: 0px; 
   text-align: left; 
@@ -335,8 +378,8 @@ padding: 15px 20px;
 }
 
 ::-webkit-scrollbar {
-  width: 8px; /* Width of vertical scrollbar */
-  height: 8px; /* Height of horizontal scrollbar */
+  width: 8px; 
+  height: 8px; 
 }
 
 ::-webkit-scrollbar-thumb {

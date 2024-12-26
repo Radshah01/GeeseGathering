@@ -3,9 +3,9 @@ import propTypes from 'prop-types'
 const TopicTracker = (props) => {
 
     const sessions = [
-            {   id: 1, course: "PROG1124", location: "M112",timeSpent: "01:10:00"},
-            {   id: 2, course: "PROG1210", location: "M216",timeSpent: "00:20:00"},
-            {   id: 3, course: "PROG1800", location: "M302",timeSpent: "00:10:00"},
+            {   id: 1, course: "PROG1124", location: "M112",timeSpent: "00:01:10:00"},
+            {   id: 2, course: "PROG1210", location: "M216",timeSpent: "00:00:20:00"},
+            {   id: 3, course: "PROG1800", location: "M302",timeSpent: "00:00:10:00"},
         ]
 
     function convertTimeFormat(timeString) {
@@ -21,7 +21,7 @@ const TopicTracker = (props) => {
         let result = "";
         if (formattedDays > 0) result += `${formattedDays}d `;
         if (formattedHours >= 0) result += `${formattedHours}h `;
-        if (formattedMinutes > 0) result += `${formattedMinutes}m`;
+        if (formattedMinutes > 0) result += `${formattedMinutes}min`;
       
         return result.trim();
         }

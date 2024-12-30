@@ -13,8 +13,8 @@ const Sessions = () => {
 
     const sessions = [
         {   id: 1, course: "PROG1124", location: "M112",timeSpent: "00:01:10:00", activeCount: 5, totalCount: 7},
-        {   id: 2, course: "PROG1210", location: "M216",timeSpent: "00:00:20:00", activeCount: 5, totalCount: 7},
-        {   id: 3, course: "PROG1800", location: "M302",timeSpent: "00:00:10:00", activeCount: 5, totalCount: 7},
+        {   id: 2, course: "PROG1210", location: "M216",timeSpent: "00:00:20:00", activeCount: 2, totalCount: 3},
+        {   id: 3, course: "PROG1800", location: "M302",timeSpent: "00:00:10:00", activeCount: 4, totalCount: 5},
     ]
 
 
@@ -74,7 +74,7 @@ const Sessions = () => {
                                                     <td>{session.course}</td>
                                                     <td>{session.location}</td>
                                                     <td>{convertTimeFormat(session.timeSpent)}</td>
-                                                    <td>{session.activeCount}/{session.totalCount}</td>
+                                                    <td><span style={{color: "#3CFF76", fontWeight: "bold", fontSize: "17px"}}>{session.activeCount}</span> / {session.totalCount}</td>
                                                 </tr>
                                             ))}
                                         </tbody>
@@ -107,7 +107,7 @@ const Sessions = () => {
                                                         <td>{session.course}</td>
                                                         <td>{session.location}</td>
                                                         <td>{convertTimeFormat(session.timeSpent)}</td>
-                                                        <td>{session.activeCount}/{session.totalCount}</td>
+                                                        <td><span style={{color: "#3CFF76", fontWeight: "bold", fontSize: "17px"}}>{session.activeCount}</span> / {session.totalCount}</td>
                                                     </tr>
                                                 ))}
                                             </tbody>

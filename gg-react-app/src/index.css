@@ -191,6 +191,13 @@ width: fit-content;
   border-radius: 50%;
 }
 
+.home-active-session{
+  white-space: nowrap;
+  margin: auto 0;
+  margin-left: auto;
+  margin-right: 4px;
+}
+
 .home-friends a{
   margin: 0.5em auto 0px;
   text-decoration: underline;
@@ -353,12 +360,12 @@ padding: 15px 20px;
 .tracker-topic-tile-content-table-thead tr{
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 22px
+  gap: 5px
 }
 
 .sessions-left-pane .tracker-topic-tile-content-table-thead tr {
   grid-template-columns: repeat(4,1fr);
-  gap: auto
+  gap: 14px
 }
 
 .tracker-topic-tile-content-table-thead th{
@@ -381,7 +388,7 @@ padding: 15px 20px;
 .tracker-topic-tile-content-table-tbody tr{
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 38px;
+  gap: 15px;
   background-color: #303030;
   padding: 12px 0;
   border-radius: 5 px;
@@ -389,7 +396,7 @@ padding: 15px 20px;
 
 .sessions-left-pane .tracker-topic-tile-content-table-tbody tr{
   grid-template-columns: repeat(4,1fr);
-  gap: 29px;
+  gap: 20px;
   background: none
 }
 

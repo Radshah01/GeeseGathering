@@ -1,10 +1,127 @@
 import Header from "../components/Header";
-
+import Footer from "../components/Footer";
+import ShortcutFriends from "../components/ShortcutFriends";
+import ShortcutSessions from "../components/ShortcutSessions";
+import ShortcutButtons from "../components/ShortcutButtons";
+import TopicTracker from "../components/TopicTracker";
+import StackedBarChart from "../components/StackedBarChart";
+import {UserData} from '../Data'
+import { useState } from "react";
+import SessionTopicSelection from "../components/SessionTopicSelection.jsx";
 const Sessions = () => {
 
+
+    const sessions = [
+        {   id: 1, course: "PROG1124", location: "M112",timeSpent: "00:01:10:00", activeCount: 5, totalCount: 7},
+        {   id: 2, course: "PROG1210", location: "M216",timeSpent: "00:00:20:00", activeCount: 5, totalCount: 7},
+        {   id: 3, course: "PROG1800", location: "M302",timeSpent: "00:00:10:00", activeCount: 5, totalCount: 7},
+    ]
+
+
+    function convertTimeFormat(timeString) {
+    
+        const [days, hours, minutes] = timeString.split(":");
+
+
+        const formattedDays = parseInt(days, 10);
+        const formattedHours = parseInt(hours, 10);
+        const formattedMinutes = parseInt(minutes, 10);
+      
+
+        let result = "";
+        if (formattedDays > 0) result += `${formattedDays}d `;
+        if (formattedHours >= 0) result += `${formattedHours}h `;
+        if (formattedMinutes > 0) result += `${formattedMinutes}min`;
+      
+        return result.trim();
+        }
+            
+
+    function handleClick(event) {
+        const div = event.target;
+        div.classList.add('shrink');
+    }
     return(
         <>
             <Header />
+            <main>
+                <div className="sessions-layout">
+                    <div className="sessions-map">
+                        <div className="sessions-left-pane" onClick={handleClick}>
+                            <SessionTopicSelection/> 
+
+                            <div className="sessions-left-pane-content">
+                                <div className="tracker-topic-tile">
+                                    <div className="tracker-topic-tile-header">
+                                        <div className="tracker-topic-tile-header-title">Active Sessions</div>
+                                        <div className="tracker-topic-tile-header-stats">
+                                        <div className="tracker-topic-tile-header-arrow">+</div>
+                                    </div>
+                                    </div>
+                                    <div className="tracker-topic-tile-content">
+                                        <table className="tracker-topic-tile-content-table">
+                                            <thead className="tracker-topic-tile-content-table-thead">
+                                            <tr>
+                                            <th>Session</th>
+                                            <th>Location</th>
+                                            <th>Time</th>
+                                            <th>Active</th>
+                                            </tr>   
+                                        </thead>
+                                        <tbody className="tracker-topic-tile-content-table-tbody">
+                                            {sessions.map((session) => (
+                                                <tr key={session.id}>
+                                                    <td>{session.course}</td>
+                                                    <td>{session.location}</td>
+                                                    <td>{convertTimeFormat(session.timeSpent)}</td>
+                                                    <td>{session.activeCount}/{session.totalCount}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                </div>
+          
+
+
+                                <div className="tracker-topic-tile">
+                                    <div className="tracker-topic-tile-header">
+                                        <div className="tracker-topic-tile-header-title">Idle Sessions</div>
+                                        <div className="tracker-topic-tile-header-stats">
+                                            <div className="tracker-topic-tile-header-arrow">+</div>
+                                        </div>
+                                    </div>
+                                    <div className="tracker-topic-tile-content">
+                                        <table className="tracker-topic-tile-content-table">
+                                            <thead className="tracker-topic-tile-content-table-thead">
+                                                <tr>
+                                                <th>Session</th>
+                                                <th>Location</th>
+                                                <th>Time</th>
+                                                <th>Active</th>
+                                                </tr>   
+                                            </thead>
+                                            <tbody className="tracker-topic-tile-content-table-tbody">
+                                                {sessions.map((session) => (
+                                                    <tr key={session.id}>
+                                                        <td>{session.course}</td>
+                                                        <td>{session.location}</td>
+                                                        <td>{convertTimeFormat(session.timeSpent)}</td>
+                                                        <td>{session.activeCount}/{session.totalCount}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </main>
+            <Footer />
+
         </>
     );
 }

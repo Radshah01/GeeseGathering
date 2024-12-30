@@ -301,6 +301,14 @@ padding: 15px 20px;
   border-radius: 16px;
 }
 
+.sessions-left-pane .tracker-topic-tile{
+  background: rgba(31, 31, 31, 0.85);
+}
+
+
+
+
+
 .tracker-topic-tile-header{
   display: block;
   font-weight: bold;
@@ -339,13 +347,18 @@ padding: 15px 20px;
 }
 
 .tracker-topic-tile-content-table-thead{
-  border-bottom: 2px solid rgba(255, 255, 255, 0.35);;
+  border-bottom: 2px solid #2a2a2a;
 }
 
 .tracker-topic-tile-content-table-thead tr{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   gap: 22px
+}
+
+.sessions-left-pane .tracker-topic-tile-content-table-thead tr {
+  grid-template-columns: repeat(4,1fr);
+  gap: auto
 }
 
 .tracker-topic-tile-content-table-thead th{
@@ -356,6 +369,7 @@ padding: 15px 20px;
   text-align: left; 
  
 }
+
 
 .tracker-topic-tile-content-table-tbody {
   display: grid;
@@ -373,9 +387,21 @@ padding: 15px 20px;
   border-radius: 5 px;
 }
 
-.tracker-topic-tile-content-table-tbody tr:nth-of-type(odd){
-  background-color: #333333;
+.sessions-left-pane .tracker-topic-tile-content-table-tbody tr{
+  grid-template-columns: repeat(4,1fr);
+  gap: 29px;
+  background: none
 }
+
+.tracker-topic-tile-content-table-tbody tr:nth-of-type(odd){
+  background-color: none;
+}
+
+
+.sessions-left-pane .tracker-topic-tile-content-table-tbody tr:nth-of-type(odd){
+  background-color: none;
+}
+
 
 ::-webkit-scrollbar {
   width: 8px; 
@@ -404,6 +430,71 @@ padding: 15px 20px;
   text-align: center;
 
 }
+
+
+
+/* SESSIONS PAGE */
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sessions-layout{
+  margin: 0 400px;
+  
+}
+
+.sessions-map{
+  border-radius: 36px;
+  background-image: url("src/assets/NC-Map.png");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center;
+  display: flex;
+  height: 901px;
+}
+
+.sessions-left-pane{
+
+background: rgba(58, 58, 58, 0.7);
+border-radius: 36px;
+width: 450px;
+height: auto;
+padding: 20px
+}
+
+.shrink {
+  width: 100px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.pane-session-menu{
+  display: flex;
+  justify-content: space-around;
+background: rgba(31, 31, 31, 0.85);
+
+
+  padding: 22px 0px 19px;
+  border-radius: 50px;
+  font-size: 1.6em;
+  text-align: center;
+}
+
+.sessions-left-pane-content{
+  margin-top: 100px;
+  display: grid;
+  gap: 50px;
+}
+
+.button-icon{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
 
 @media screen and (max-width: 1850px) {
   

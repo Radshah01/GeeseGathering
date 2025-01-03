@@ -11,6 +11,7 @@ import SessionTopicSelection from "../components/SessionTopicSelection.jsx";
 const Sessions = () => {
 
 
+  
     const sessions = [
         {   id: 1, course: "PROG1124", location: "M112",timeSpent: "00:01:10:00", activeCount: 5, totalCount: 7},
         {   id: 2, course: "PROG1210", location: "M216",timeSpent: "00:00:20:00", activeCount: 2, totalCount: 3},
@@ -37,17 +38,17 @@ const Sessions = () => {
         }
             
 
-    function handleClick(event) {
-        const div = event.target;
-        div.classList.add('shrink');
-    }
+    // function handleClick(event) {
+    //     const div = event.target;
+    //     div.classList.add('shrink');
+    // }
     return(
         <>
             <Header />
             <main>
                 <div className="sessions-layout">
                     <div className="sessions-map">
-                        <div className="sessions-left-pane" onClick={handleClick}>
+                        <div className="sessions-left-pane">
                             <SessionTopicSelection/> 
 
                             <div className="sessions-left-pane-content">

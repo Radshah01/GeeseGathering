@@ -313,9 +313,6 @@ padding: 15px 20px;
 }
 
 
-
-
-
 .tracker-topic-tile-header{
   display: block;
   font-weight: bold;
@@ -479,14 +476,17 @@ padding: 20px
 
 .pane-session-menu{
   display: flex;
-  justify-content: space-around;
 background: rgba(31, 31, 31, 0.85);
-
-
-  padding: 22px 0px 19px;
+  padding: 22px 30px 17px;
   border-radius: 50px;
   font-size: 1.6em;
   text-align: center;
+  justify-content: space-between;
+}
+
+.pane-session-menu-title{
+  display: inline-block;
+  transition:  all 0.5s ease 0s;;
 }
 
 .sessions-left-pane-content{

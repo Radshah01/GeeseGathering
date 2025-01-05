@@ -252,7 +252,7 @@ width: fit-content;
 }
 
 
-/*Hover Glow Effect inspired from codepen.io/kocsten*/
+/* Hover Glow Effect inspired from codepen.io/kocsten */
 .popup-content:before{
   content: '';
   background: linear-gradient(90deg, #3CFF76, #028CF3);
@@ -468,8 +468,8 @@ padding: 15px 20px;
 .tracker-topic-tile-content-table{
   margin: 0px;
   display: grid;
-  width: 100%; /* Make the table take up full width */
-  border-collapse: collapse; /* Remove spacing between cells */
+  width: 100%;
+  border-collapse: collapse; 
   table-layout: fixed;
 }
 
@@ -569,7 +569,6 @@ main{
 
 .sessions-layout{
   margin: 0 400px;
-  
 }
 
 .sessions-map{
@@ -583,7 +582,7 @@ main{
 }
 
 .sessions-left-pane{
-
+z-index: 1000;
 background: rgba(58, 58, 58, 0.7);
 border-radius: 36px;
 width: 450px;

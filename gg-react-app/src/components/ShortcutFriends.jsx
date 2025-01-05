@@ -48,6 +48,7 @@ const ShortcutFriends = () => {
                    &times;
                  </button>
                  <h3>All Friends</h3>
+                 <hr></hr>
                  <ul>
                    {friends.map((friend) => (
                      <li key={friend.id} className="popup-friend-tile">

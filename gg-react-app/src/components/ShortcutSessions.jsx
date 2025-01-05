@@ -47,6 +47,7 @@ const ShortcutSessions = () => {
               &times;
             </button>
             <h3>All Sessions</h3>
+            <hr></hr>
             <ul>
               {sessions.map((session) => (
                 <li key={session.id} className="home-friend-tile">

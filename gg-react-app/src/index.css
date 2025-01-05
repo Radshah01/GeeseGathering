@@ -243,13 +243,68 @@ width: fit-content;
  }
 
 .popup-content {
-  box-shadow: 0px 0px 20px 5px rgba(200, 200, 200, 0.37); 
   background: #1f1f1f;
   padding: 30px;
   border-radius: 25px;
-  width: 90%;
-  max-width: 400px;
+  width: 400px;
   position: relative;
+  z-index: 0;
+}
+
+
+/*Hover Glow Effect inspired from codepen.io/kocsten*/
+.popup-content:before{
+  content: '';
+  background: linear-gradient(90deg, #3CFF76, #028CF3);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 1;
+  transition: opacity .3s ease-in-out;
+  
+}
+
+
+
+.popup-content:hover:before {
+  opacity: 1;
+}
+
+.popup-content:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #171717;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 100%; }
+  50% { background-position: 200% 0; }
+  100% { background-position: 0 100%; }
+}
+
+
+.popup-content h3{
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.popup-content hr{
+  background: linear-gradient(90deg, #3CFF76 0%, #028CF3 100%);
+  height: 4px;
+  border: none;
+  margin-bottom: 25px;
 }
 
 .popup-close {

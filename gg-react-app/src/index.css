@@ -570,7 +570,7 @@ main{
 .sessions-layout{
   margin: 0 400px;
 }
-
+/* 
 .sessions-map{
   border-radius: 36px;
   background-image: url("src/assets/NC-Map.png");
@@ -579,7 +579,40 @@ main{
   background-position: center;
   display: flex;
   height: 901px;
+  position: relative;
+} */
+
+.sessions-map{
+  border-radius: 36px;
+  height: 901px;
 }
+
+
+
+.ncmap-buildings{
+  position: absolute;
+}
+
+.ncmap-buildings svg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: transparent;
+  transition: fill 0.5s ease, stroke 0.4s ease;
+}
+
+
+#buildingMerrit {
+  top: 0px; /* Position relative to the map */
+  left: 0px;
+}
+
+
+
+
+
+
+
 
 .sessions-left-pane{
 z-index: 1000;

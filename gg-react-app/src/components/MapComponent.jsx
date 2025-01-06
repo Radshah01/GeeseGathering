@@ -12,11 +12,11 @@ const MapComponent = () => {
   
         mapRef.current = new mapboxgl.Map({
             container: mapContainerRef.current,
-            style: 'mapbox://styles/mapbox/dark-v11',
-            center: [-79.25, 43],
-            zoom: 16,
-            pitch: 45,
-            bearing: 0,
+            style: 'mapbox://styles/mapbox/standard',
+            center: [-79.264, 43.0147],
+            zoom: 16.2,
+            pitch: 65,
+            bearing: 230,
             antialias: true
     });
 
@@ -27,6 +27,7 @@ const MapComponent = () => {
         ).id;
 
 
+
     mapRef.current.addLayer({
         'id': 'add-3d-buildings',
         'source': 'composite',
@@ -35,7 +36,7 @@ const MapComponent = () => {
         'type': 'fill-extrusion',
         'minzoom': 15,
         'paint': {
-          'fill-extrusion-color': '#aaa',
+          'fill-extrusion-color': 'rgb(152, 157, 163)',
           'fill-extrusion-height': [
             'interpolate',
             ['linear'],
@@ -54,12 +55,19 @@ const MapComponent = () => {
             15.05,
             ['get', 'min_height']
           ],
-          'fill-extrusion-opacity': 0.6
+          'fill-extrusion-opacity': 0.45
         }
       },
       labelLayerId
     );
     });
+
+
+    mapRef.current.on('style.load', () => {
+        mapRef.current.setConfigProperty('basemap', 'lightPreset', 'dusk');
+        mapRef.current.setConfigProperty('basemap', 'showPointOfInterestLabels', true);
+        mapRef.current.setConfigProperty('basemap', 'show3dObjects', true);
+        });
 
   return () => mapRef.current.remove();
 }, []);

@@ -569,18 +569,8 @@ main{
 
 .sessions-layout{
   margin: 0 400px;
+  overflow: hidden;
 }
-/* 
-.sessions-map{
-  border-radius: 36px;
-  background-image: url("src/assets/NC-Map.png");
-  background-repeat: no-repeat;
-  background-size: cover; 
-  background-position: center;
-  display: flex;
-  height: 901px;
-  position: relative;
-} */
 
 .sessions-map{
   border-radius: 40px;
@@ -604,8 +594,40 @@ padding-bottom: auto;
 position: absolute;
 top: 0;
 right: 0;
+transition: transform 0.3s ease, width 0.3s ease;
 }
 
+.sessions-left-pane.collapsed {
+  transform: translateX(450px); 
+  
+}
+
+.sessions-pane-toggle-view{
+  position:absolute;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  left: -64px;
+  top:50%;
+  bottom: 50%;
+  rotate: 180deg;
+  background-color: #a9a9a9cd;
+ width: 64px;
+ height: 64px;
+ border-radius: 22px;
+ cursor: pointer;
+ transition: transform 0.5s ease; 
+}
+
+.sessions-pane-toggle-view.rotated {
+  transform: rotate(180deg);
+}
+
+.sessions-pane-toggle-view img{
+ width: 50px;
+ height: 50px;
+ margin: auto 0;;
+}
 
 .pane-session-menu{
   display: flex;

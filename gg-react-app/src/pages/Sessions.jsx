@@ -41,22 +41,25 @@ const Sessions = () => {
         }
             
 
-    // function handleClick(event) {
-    //     const div = event.target;
-    //     div.classList.add('shrink');
-    // }
+
+
+
+        const [isCollapsed, setIsCollapsed] = useState(false);
+      
+        const toggleView = () => {
+          setIsCollapsed(!isCollapsed);
+        };
+
+
     return(
         <>
             <Header />
             <main>
                 <div className="sessions-layout">
                     <div className="sessions-map">
-                   
-                    
-                            <MapComponent/>
-                    
-                      
-                      <div className="sessions-left-pane">
+                            <MapComponent/>   
+                      <div className= {`sessions-left-pane ${isCollapsed ? 'collapsed' : ''}`}>
+                            <div className= {`sessions-pane-toggle-view ${isCollapsed ? 'rotated' : ''}`} onClick={toggleView}><img src="src/assets/left-align.png"></img></div>
                             <SessionTopicSelection/> 
 
                             <div className="sessions-left-pane-content">

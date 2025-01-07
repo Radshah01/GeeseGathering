@@ -8,26 +8,16 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 const MapComponent = () => {
     const mapContainerRef = useRef(null);
     const mapRef = useRef(null);
-    const [markers, setMarkers] = useState([]);
+
 
     const markerRoomLocations = [
-        { lng: -79.2545, lat: 43.0093 },
-        { lng: -79.2475, lat: 43.0089 },
-    ];
+      { lng: -79.2545, lat: 43.0093, title: "Location 1" },
+      { lng: -79.2475, lat: 43.0089, title: "Location 2" },
+  ];
 
-    const createCustomMarkerElement = () => {
-        const element = document.createElement('div');
-        element.className = 'custom-room-marker';
-        element.style.width = '200px';
-        element.style.height = '200px';
-        element.style.borderRadius = '50%';
-        element.style.backgroundColor = 'rgb(167, 103, 236)';
-        return element;
-    }
-  
     useEffect(() => {
         mapboxgl.accessToken = 'pk.eyJ1IjoibGVtbW9yYWQiLCJhIjoiY201aXlxZzl3MDN6dDJ2cTJraW0yd3BzOCJ9.26qmYpFEIGdDTzukqoST6w';
-  
+
         mapRef.current = new mapboxgl.Map({
             container: mapContainerRef.current,
             style: 'mapbox://styles/mapbox/standard',
@@ -35,7 +25,7 @@ const MapComponent = () => {
             zoom: 16.2,
             pitch: 65,
             bearing: 230,
-            antialias: true       
+            antialias: true
     });
 
 
@@ -49,7 +39,7 @@ const MapComponent = () => {
         const labelLayerId = layers.find(
             (layer) => layer.type === 'symbol' && layer.layout['text-field']
         ).id;
-        
+
 
 
     mapRef.current.addLayer({
@@ -85,19 +75,58 @@ const MapComponent = () => {
       labelLayerId
     );
 
-    const newRoomMarkers = markerRoomLocations.map(roomLocation => {
-        const marker = new mapboxgl.Marker(createCustomMarkerElement())
-                                .setLngLat([roomLocation.lng, roomLocation.lat])
-                                .addTo(mapRef.current);
-        return marker
-    })
 
-    setMarkers(newRoomMarkers);
-
+    mapRef.current.addSource('room-markers', {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: markerRoomLocations.map(location => ({
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [location.lng, location.lat]
+          },
+          properties: {
+            title: location.title
+          }
+        }))
+      }
+    });
     
+    mapRef.current.addLayer({
+      id: 'room-markers',
+      type: 'circle',
+      source: 'room-markers',
+      paint: {
+        'circle-radius': 100,
+        'circle-color': 'rgb(167, 103, 236)',
+        'circle-opacity': 0.75,
+        'circle-stroke-width': 1,
+        'circle-stroke-color': 'rgb(57, 21, 95)'
+      },
+      layout: {
+        'circle-sort-key': 1 
+      }
+    });
+    
+    mapRef.current.addLayer({
+      id: 'room-labels',
+      type: 'symbol',
+      source: 'room-markers',
+      layout: {
+        'text-field': ['get', 'title'],
+        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+        'text-offset': [0, -1.5],
+        'text-anchor': 'bottom'
+      },
+      paint: {
+        'text-color': '#ffffff'
+      }
     });
 
-   
+    });
+
+
 
     mapRef.current.on('style.load', () => {
         mapRef.current.setConfigProperty('basemap', 'lightPreset', 'dusk');
@@ -105,17 +134,17 @@ const MapComponent = () => {
         mapRef.current.setConfigProperty('basemap', 'show3dObjects', true);
         });
 
-  return () => {
-    markers.forEach(marker => marker.remove());
+    return () => {
     mapRef.current.remove();
-  }
-}, []);
-  
+    }
+  }, []);
+
     return (
-    <>  
+    <>
         <div ref={mapContainerRef} style={{ height: "100%" , borderRadius: '36px', overflow: 'hidden'}} />
     </>
     )
+
   }
-  
-  export default MapComponent;
+
+export default MapComponent;

@@ -536,17 +536,17 @@ padding: 15px 20px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #666; /* Thumb color */
-  border-radius: 10px; /* Rounded corners */
+  background: #666; 
+  border-radius: 10px; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #444; /* Thumb hover color */
+  background: #444;
 }
 
 ::-webkit-scrollbar-track {
-  background: #222; /* Track color */
-  border-radius: 10px; /* Match thumb's rounded corners */
+  background: #222; 
+  border-radius: 10px;
 }
 
 
@@ -585,48 +585,27 @@ main{
 .sessions-map{
   border-radius: 40px;
   height: 901px;
+  position: relative;
 }
 
-
-.ncmap-buildings{
+.mapbox-content {
   position: absolute;
 }
-
-.ncmap-buildings svg{
-  position: absolute;
-  top: 0;
-  left: 0;
-  fill: transparent;
-  transition: fill 0.5s ease, stroke 0.4s ease;
-}
-
-
-#buildingMerrit {
-  top: 0px; /* Position relative to the map */
-  left: 0px;
-}
-
-
-
-
-
-
 
 
 .sessions-left-pane{
-z-index: 1000;
+z-index: 1;
 background: rgba(58, 58, 58, 0.7);
 border-radius: 36px;
 width: 450px;
-height: auto;
-padding: 20px
+height: 901px;
+padding: 20px;
+padding-bottom: auto;
+position: absolute;
+top: 0;
+right: 0;
 }
 
-.shrink {
-  width: 100px;
-  overflow: hidden;
-  transition: all 0.5s ease;
-}
 
 .pane-session-menu{
   display: flex;

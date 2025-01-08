@@ -429,7 +429,24 @@ padding: 15px 20px;
   background: #303030;
   padding:15px;
   border-radius: 16px;
+  height: 176px;
+  transition: all 0.5s ease;
+  overflow: hidden;
 }
+
+.tracker-topic-tile.collapsed {
+  height: 53px;
+} 
+
+.tracker-topic-tile.collapsed .tracker-topic-tile-header .tracker-topic-tile-header-arrow img{
+rotate: 90deg
+} 
+
+
+.tracker-topic-tile.collapsed .tracker-topic-tile-content{
+display: none;
+} 
+
 
 .sessions-left-pane .tracker-topic-tile{
   background: rgba(31, 31, 31, 0.85);
@@ -462,8 +479,18 @@ padding: 15px 20px;
 .tracker-topic-tile-header-arrow{
   display: inline-block;
   margin-left: 15px;
+  cursor: pointer;
 }
 
+.tracker-topic-tile-header-arrow img{
+  rotate: 270deg;
+  width: 20px;
+  height: auto;
+}
+
+.tracker-topic-tile-content{
+transition: all 0.5s ease;
+}
 
 .tracker-topic-tile-content-table{
   margin: 0px;
@@ -511,7 +538,7 @@ padding: 15px 20px;
   gap: 15px;
   background-color: #303030;
   padding: 12px 0;
-  border-radius: 5 px;
+  border-radius: 5px;
 }
 
 .sessions-left-pane .tracker-topic-tile-content-table-tbody tr{
@@ -611,22 +638,25 @@ transition: transform 0.3s ease, width 0.3s ease;
   top:50%;
   bottom: 50%;
   rotate: 180deg;
-  background-color: #a9a9a9cd;
+  background-color: #686868c9;
  width: 64px;
  height: 64px;
- border-radius: 22px;
  cursor: pointer;
  transition: transform 0.5s ease; 
+ border-top-right-radius: 22px;
+ border-bottom-right-radius: 22px;
 }
 
-.sessions-pane-toggle-view.rotated {
+.sessions-pane-toggle-view.rotated img {
   transform: rotate(180deg);
+
 }
 
 .sessions-pane-toggle-view img{
- width: 50px;
- height: 50px;
- margin: auto 0;;
+ width: 40px;
+ height: 40px;
+ margin: auto 0;
+
 }
 
 .pane-session-menu{
@@ -656,6 +686,9 @@ background: rgba(31, 31, 31, 0.85);
   cursor: pointer;
 }
 
+
+.button-icon img:active{
+  filter: invert(75%) sepia(50%) saturate(300%) hue-rotate(250deg) brightness(105%);}
 
 
 @media screen and (max-width: 1850px) {

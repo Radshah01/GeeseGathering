@@ -45,12 +45,23 @@ const Sessions = () => {
 
 
         const [isCollapsed, setIsCollapsed] = useState(false);
-      
+        const [isActiveTileCollapsed, setIsActiveTileCollapsed] = useState(false);
+        const [isIdleTileCollapsed, setIsIdleTileCollapsed] = useState(false);
+
+
         const toggleView = () => {
           setIsCollapsed(!isCollapsed);
         };
 
+        const toggleActiveTileView = () => { 
+            setIsActiveTileCollapsed(!isActiveTileCollapsed);
+        }
 
+        const toggleIdleTileView = () => { 
+            setIsIdleTileCollapsed(!isIdleTileCollapsed);
+        }
+
+        
     return(
         <>
             <Header />
@@ -63,11 +74,11 @@ const Sessions = () => {
                             <SessionTopicSelection/> 
 
                             <div className="sessions-left-pane-content">
-                                <div className="tracker-topic-tile">
+                                <div className={`tracker-topic-tile ${isActiveTileCollapsed ? 'collapsed' : ''}`}>
                                     <div className="tracker-topic-tile-header">
                                         <div className="tracker-topic-tile-header-title">Active Sessions</div>
                                         <div className="tracker-topic-tile-header-stats">
-                                        <div className="tracker-topic-tile-header-arrow">+</div>
+                                        <div className="tracker-topic-tile-header-arrow" onClick={toggleActiveTileView}><img className="tracker-topic-tile-header-arrow" src="src/assets/right-arrow.png"></img></div>
                                     </div>
                                     </div>
                                     <div className="tracker-topic-tile-content">
@@ -96,11 +107,11 @@ const Sessions = () => {
           
 
 
-                                <div className="tracker-topic-tile">
-                                    <div className="tracker-topic-tile-header">
+                            <div className={`tracker-topic-tile ${isIdleTileCollapsed ? 'collapsed' : ''}`}>
+                            <div className="tracker-topic-tile-header">
                                         <div className="tracker-topic-tile-header-title">Idle Sessions</div>
                                         <div className="tracker-topic-tile-header-stats">
-                                            <div className="tracker-topic-tile-header-arrow">+</div>
+                                        <div className="tracker-topic-tile-header-arrow" onClick={toggleIdleTileView}><img className="tracker-topic-tile-header-arrow" src="src/assets/right-arrow.png"></img></div>
                                         </div>
                                     </div>
                                     <div className="tracker-topic-tile-content">

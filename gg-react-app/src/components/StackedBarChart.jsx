@@ -2,6 +2,7 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2'
 import {Chart as ChartJS} from 'chart.js/auto'
 import { UserData } from '../Data';
+import { callback } from 'chart.js/helpers';
 
 
 const stackedBar = ({chartData}) => {
@@ -25,7 +26,7 @@ const stackedBar = ({chartData}) => {
                 max: 60,
                 ticks: {
                   color: 'rgb(148, 148, 148)',
-                  callback: value => `${value}min`,
+                  callback: value => value + "min",
                   stepSize: 20,
                 },
                 

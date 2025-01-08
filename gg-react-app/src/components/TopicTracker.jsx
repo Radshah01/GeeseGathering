@@ -1,4 +1,5 @@
 import propTypes from 'prop-types'
+import React, {useState} from 'react';
 
 const TopicTracker = (props) => {
 
@@ -7,6 +8,8 @@ const TopicTracker = (props) => {
             {   id: 2, course: "PROG1210", location: "M216",timeSpent: "00:00:20:00"},
             {   id: 3, course: "PROG1800", location: "M302",timeSpent: "00:00:10:00"},
         ]
+
+        
 
     function convertTimeFormat(timeString) {
     
@@ -26,15 +29,18 @@ const TopicTracker = (props) => {
         return result.trim();
         }
         
-    
+        const [isCollapsed, setIsCollapsed] = useState(false);
+        
+        const toggleView = () => {
+            setIsCollapsed(!isCollapsed);
+          };
 
     return(
-        <div className="tracker-topic-tile">
-            <div className="tracker-topic-tile-header">
+        <div className={`tracker-topic-tile ${isCollapsed ? 'collapsed' : ''}`}>            <div className="tracker-topic-tile-header">
                 <div className="tracker-topic-tile-header-title" style={{color: props.topicColor}}>{props.name}</div>
                 <div className="tracker-topic-tile-header-stats">
                     <div className="tracker-topic-tile-header-time" style={{color: props.topicColor}}>{convertTimeFormat(props.totalTimeSpent)}</div>
-                    <div className="tracker-topic-tile-header-arrow">+</div>
+                    <div className="tracker-topic-tile-header-arrow" onClick={toggleView}><img  src="src/assets/right-arrow.png"></img></div>
                 </div>
             </div>
             <div className="tracker-topic-tile-content">
@@ -54,21 +60,6 @@ const TopicTracker = (props) => {
                                 <td>{convertTimeFormat(session.timeSpent)}</td>
                             </tr>
                         ))}
-                        {/* <tr>
-                            <td>PROG1124</td>
-                            <td>M112</td>
-                            <td>1h 10m</td>
-                        </tr>
-                        <tr>
-                            <td>PROG1210</td>
-                            <td>M216</td>
-                            <td>0h 20m</td>
-                        </tr>
-                        <tr>
-                            <td>PROG1800</td>
-                            <td>S302</td>
-                            <td>0h 10m</td>
-                        </tr> */}
                     </tbody>
                 </table>
             </div>

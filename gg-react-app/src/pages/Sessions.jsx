@@ -78,7 +78,7 @@ const Sessions = () => {
                                     <div className="tracker-topic-tile-header">
                                         <div className="tracker-topic-tile-header-title">Active Sessions</div>
                                         <div className="tracker-topic-tile-header-stats">
-                                        <div className="tracker-topic-tile-header-arrow" onClick={toggleActiveTileView}><img className="tracker-topic-tile-header-arrow" src="src/assets/right-arrow.png"></img></div>
+                                        <div className="tracker-topic-tile-header-arrow" onClick={toggleActiveTileView}><img src="src/assets/right-arrow.png"></img></div>
                                     </div>
                                     </div>
                                     <div className="tracker-topic-tile-content">

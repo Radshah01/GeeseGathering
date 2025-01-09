@@ -9,14 +9,39 @@ const MapComponent = () => {
     const mapContainerRef = useRef(null);
     const mapRef = useRef(null);
 
-
     const markerRoomLocations = [
-      { lng: -79.2545, lat: 43.0093, title: "Location 1" },
-      { lng: -79.2475, lat: 43.0089, title: "Location 2" },
-  ];
+      { lng: -79.2625, lat: 43.0147, title: "Location 1" },
+      { lng: -79.262, lat: 43.014, title: "Location 2" },
+      { lng: -79.26295, lat: 43.01407, title: "Location 3" },
+      { lng: -79.2626, lat: 43.01375, title: "Location 4" },
+      { lng: -79.26349, lat: 43.0142, title: "Location 5" },
+      { lng: -79.2639, lat: 43.0154, title: "Location 6" },
+      { lng: -79.26245, lat: 43.0153, title: "Location 7" },
+      { lng: -79.26455, lat: 43.01485, title: "Location 8" },
+      { lng: -79.26455, lat: 43.01415, title: "Location 9" },
+    ];
+
+    
+    
+    const addMarkers = () => {
+      
+      markerRoomLocations.forEach(room => {
+        const el = document.createElement('div');
+        el.className = 'sessions-room-marker';
+
+        new mapboxgl.Marker(el)
+          .setLngLat([room.lng, room.lat])
+          .setPopup(new mapboxgl.Popup({className: "mapboxgl-popup"}).setHTML(`<h3>${room.title}</h3>`))
+          .addTo(mapRef.current)
+      })
+
+  
+  
+    }
 
     useEffect(() => {
         mapboxgl.accessToken = 'pk.eyJ1IjoibGVtbW9yYWQiLCJhIjoiY201aXlxZzl3MDN6dDJ2cTJraW0yd3BzOCJ9.26qmYpFEIGdDTzukqoST6w';
+
 
         mapRef.current = new mapboxgl.Map({
             container: mapContainerRef.current,
@@ -30,7 +55,9 @@ const MapComponent = () => {
 
 
 
+
     mapRef.current.on('load', () => {
+
         const canvas = mapRef.current.getCanvas();
         canvas.style.borderRadius = '36px';
 
@@ -41,98 +68,53 @@ const MapComponent = () => {
         ).id;
 
 
+        
+     
 
-    mapRef.current.addLayer({
-        'id': 'add-3d-buildings',
-        'source': 'composite',
-        'source-layer': 'building',
-        'filter': ['==', 'extrude', 'true'],
-        'type': 'fill-extrusion',
-        'minzoom': 15,
-        'paint': {
-          'fill-extrusion-color': 'rgb(152, 157, 163)',
-          'fill-extrusion-height': [
-            'interpolate',
-            ['linear'],
-            ['zoom'],
-            15,
-            0,
-            15.05,
-            ['get', 'height']
-          ],
-          'fill-extrusion-base': [
-            'interpolate',
-            ['linear'],
-            ['zoom'],
-            15,
-            0,
-            15.05,
-            ['get', 'min_height']
-          ],
-          'fill-extrusion-opacity': 0.45
-        }
-      },
-      labelLayerId
-    );
-
-
-    mapRef.current.addSource('room-markers', {
-      type: 'geojson',
-      data: {
-        type: 'FeatureCollection',
-        features: markerRoomLocations.map(location => ({
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [location.lng, location.lat]
+        mapRef.current.addLayer({
+            'id': 'add-3d-buildings',
+            'source': 'composite',
+            'source-layer': 'building',
+            'filter': ['==', 'extrude', 'true'],
+            'type': 'fill-extrusion',
+            'minzoom': 15,
+            'paint': {
+              'fill-extrusion-color': 'rgb(152, 157, 163)',
+              'fill-extrusion-height': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                15,
+                0,
+                15.05,
+                ['get', 'height']
+              ],
+              'fill-extrusion-base': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                15,
+                0,
+                15.05,
+                ['get', 'min_height']
+              ],
+              'fill-extrusion-opacity': 0.45
+            }
           },
-          properties: {
-            title: location.title
-          }
-        }))
-      }
+          labelLayerId
+        );
+          
     });
-    
-    mapRef.current.addLayer({
-      id: 'room-markers',
-      type: 'circle',
-      source: 'room-markers',
-      paint: {
-        'circle-radius': 100,
-        'circle-color': 'rgb(167, 103, 236)',
-        'circle-opacity': 0.75,
-        'circle-stroke-width': 1,
-        'circle-stroke-color': 'rgb(57, 21, 95)'
-      },
-      layout: {
-        'circle-sort-key': 1 
-      }
-    });
-    
-    mapRef.current.addLayer({
-      id: 'room-labels',
-      type: 'symbol',
-      source: 'room-markers',
-      layout: {
-        'text-field': ['get', 'title'],
-        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-        'text-offset': [0, -1.5],
-        'text-anchor': 'bottom'
-      },
-      paint: {
-        'text-color': '#ffffff'
-      }
-    });
-
-    });
-
-
 
     mapRef.current.on('style.load', () => {
-        mapRef.current.setConfigProperty('basemap', 'lightPreset', 'dusk');
-        mapRef.current.setConfigProperty('basemap', 'showPointOfInterestLabels', true);
-        mapRef.current.setConfigProperty('basemap', 'show3dObjects', true);
-        });
+      mapRef.current.setConfigProperty('basemap', 'lightPreset', 'dusk');
+      mapRef.current.setConfigProperty('basemap', 'showPointOfInterestLabels', true);
+      mapRef.current.setConfigProperty('basemap', 'show3dObjects', true);
+
+      addMarkers();
+      });
+
+    
 
     return () => {
     mapRef.current.remove();
@@ -145,6 +127,6 @@ const MapComponent = () => {
     </>
     )
 
-  }
+}
 
 export default MapComponent;

@@ -14,34 +14,12 @@ import SessionTopicTrackerTile from "../components/SessionTopicTrackerTile.jsx";
 
 const Sessions = () => {
 
-    function convertTimeFormat(timeString) {
-    
-        const [days, hours, minutes] = timeString.split(":");
-
-
-        const formattedDays = parseInt(days, 10);
-        const formattedHours = parseInt(hours, 10);
-        const formattedMinutes = parseInt(minutes, 10);
+    const [isCollapsed, setIsCollapsed] = useState(false);
       
 
-        let result = "";
-        if (formattedDays > 0) result += `${formattedDays}d `;
-        if (formattedHours >= 0) result += `${formattedHours}h `;
-        if (formattedMinutes > 0) result += `${formattedMinutes}min`;
-      
-        return result.trim();
-        }
-            
-
-
-
-
-        const [isCollapsed, setIsCollapsed] = useState(false);
-      
-
-        const toggleView = () => {
-          setIsCollapsed(!isCollapsed);
-        };
+    const toggleView = () => {
+        setIsCollapsed(!isCollapsed);
+    };
 
        
         

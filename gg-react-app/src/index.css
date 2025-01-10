@@ -618,22 +618,80 @@ main{
   border: 3px solid  rgb(244, 244, 244);
 }
 
+
+.sessions-room-marker:hover{
+  position: absolute;
+  background-color: #e1e1e1;
+  filter: blur(3px);
+  width: 25px;
+  height: 25px;
+  z-index: 0;
+  animation: glowing 8s linear infinite;
+  opacity: 1;
+  transition: opacity .3s ease-in-out;
+}
+
+
+.sessions-room-marker.clicked{
+  background: linear-gradient(90deg, #3CFF76, #028CF3);
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  z-index: 0;
+  filter: blur(3px);
+  animation: glowing 8s linear infinite;
+  opacity: 1;
+  transition: opacity .3s ease-in-out;
+  border: none
+}
+
+
+
 .mapboxgl-popup {
   max-width: 200px;
 }
 
 .mapboxgl-popup .mapboxgl-popup-content {
   text-align: center;
-  background-color: #270c33;
-  border: 2px solid rgb(244, 244, 244);
   border-radius: 25px;
   padding: 12px 15px;
+  background-color: #232323;
+  top: -5px;
 }
+
+.mapboxgl-popup .mapboxgl-popup-content:before{
+  content: '';
+  background: linear-gradient(90deg, #3CFF76, #028CF3);
+  position: absolute;
+  top: -1px;
+  left:-1px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  animation: glowing 8s linear infinite;
+  opacity: 1;
+  transition: opacity .3s ease-in-out;
+  border-radius: 25px;
+  
+}
+
+
+
+.mapboxgl-popup .mapboxgl-popup-content:hover:before {
+  opacity: 1;
+}
+
 
 .mapboxgl-popup-close-button {
   display: none;
 }
 
+
+.mapboxgl-popup-tip{
+  filter: invert(0.9);
+}
 
 .sessions-left-pane{
 z-index: 1;

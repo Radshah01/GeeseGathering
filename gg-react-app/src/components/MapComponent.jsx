@@ -28,6 +28,13 @@ const MapComponent = () => {
       markerRoomLocations.forEach(room => {
         const el = document.createElement('div');
         el.className = 'sessions-room-marker';
+        el.onclick = function () { 
+          const allMarkers = document.querySelectorAll(".sessions-room-marker")
+          allMarkers.forEach(marker => {
+            marker.classList.remove("clicked")
+          })
+          el.classList.toggle("clicked")
+        }
 
         new mapboxgl.Marker(el)
           .setLngLat([room.lng, room.lat])

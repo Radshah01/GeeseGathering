@@ -7,26 +7,7 @@ const SessionTopicTrackerTile = (props) => {
         {   id: 1, course: "PROG1124", location: "M112",timeSpent: "00:01:10:00", activeCount: 5, totalCount: 7},
         {   id: 2, course: "PROG1210", location: "M216",timeSpent: "00:00:20:00", activeCount: 2, totalCount: 3},
         {   id: 3, course: "PROG1800", location: "M302",timeSpent: "00:00:10:00", activeCount: 4, totalCount: 5},
-    ]
-
-    function convertTimeFormat(timeString) {
-    
-        const [days, hours, minutes] = timeString.split(":");
-
-
-        const formattedDays = parseInt(days, 10);
-        const formattedHours = parseInt(hours, 10);
-        const formattedMinutes = parseInt(minutes, 10);
-      
-
-        let result = "";
-        if (formattedDays > 0) result += `${formattedDays}d `;
-        if (formattedHours >= 0) result += `${formattedHours}h `;
-        if (formattedMinutes > 0) result += `${formattedMinutes}min`;
-      
-        return result.trim();
-    }
-            
+    ] 
 
     const [isActiveTileCollapsed, setIsActiveTileCollapsed] = useState(false);
     const [isIdleTileCollapsed, setIsIdleTileCollapsed] = useState(false);
@@ -56,8 +37,8 @@ const SessionTopicTrackerTile = (props) => {
                         <tr>
                         <th>Session</th>
                         <th>Location</th>
-                        <th>Time</th>
                         <th>Active</th>
+                        <th>Action</th>
                         </tr>   
                     </thead>
                     <tbody className="tracker-topic-tile-content-table-tbody">
@@ -65,8 +46,8 @@ const SessionTopicTrackerTile = (props) => {
                             <tr key={session.id} onClick={() => console.log(session.course)}>
                                 <td>{session.course}</td>
                                 <td>{session.location}</td>
-                                <td>{convertTimeFormat(session.timeSpent)}</td>
                                 <td><span style={{color: "#3CFF76", fontWeight: "bold", fontSize: "17px"}}>{session.activeCount}</span> / {session.totalCount}</td>
+                                <td><div style={{background: "#32a852", padding: "5px", width: "40px"}}>Join</div></td>
                             </tr>
                         ))}
                     </tbody>

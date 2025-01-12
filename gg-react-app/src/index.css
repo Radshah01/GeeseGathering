@@ -596,7 +596,7 @@ main{
 
 .sessions-layout{
   margin: 0 400px;
-  overflow: hidden;
+
 }
 
 .sessions-map{
@@ -762,6 +762,26 @@ background: rgba(31, 31, 31, 0.85);
   display: grid;
   gap: 50px;
 }
+
+
+.sessions-selected-session{
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 36px;
+  width: 450px;
+  height: 901px;
+  padding: 20px;
+  padding-bottom: auto;
+  position: absolute;
+  top: 901px;
+  right: 0;
+  transition: transform 0.3s ease, top 0.7s ease;
+  }
+
+  .sessions-selected-session.show{
+    top: 0px;
+    transition: transform 0.3s ease, top 0.7s ease;
+    }
 
 .button-icon{
   background: none;

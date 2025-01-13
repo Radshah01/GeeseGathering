@@ -29,7 +29,6 @@ tr{
 
 .header{
   display: flex;
-  justify-content: space-between;
   margin: 1.5em auto 2.5em;
   align-items: center;
   padding: 10px;
@@ -77,12 +76,9 @@ tr{
 
 .header-options-section{
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width:170px;
   height: fit-content;
   margin-right: 6px;
+  margin-left: auto;
 }
 
 .header-options{
@@ -91,11 +87,10 @@ tr{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  float: right;
   padding:2px 8px 0 0;
-  margin: 3px 0;
+  margin: 3px 0 3px auto;
   cursor: pointer;
-  height: auto;
 }
 
 .header-options span{
@@ -482,6 +477,12 @@ display: none;
   cursor: pointer;
 }
 
+.session-information-members .tracker-topic-tile-header-arrow{
+  display: inline-block;
+  padding: 0px;
+  cursor: pointer;
+}
+
 .tracker-topic-tile-header-arrow img{
   rotate: 270deg;
   width: 20px;
@@ -705,6 +706,7 @@ position: absolute;
 top: 0;
 right: 0;
 transition: transform 0.3s ease, width 0.3s ease;
+overflow: hidden;
 }
 
 .sessions-left-pane.collapsed {
@@ -766,7 +768,7 @@ background: rgba(31, 31, 31, 0.85);
 
 .sessions-selected-session{
   z-index: 2;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgb(14, 14, 14);
   border-radius: 36px;
   width: 450px;
   height: 901px;
@@ -788,11 +790,12 @@ background: rgba(31, 31, 31, 0.85);
     cursor: pointer;
     display: inline-block;
     padding: 25px;
+    
   }
 
   .session-information-header{
     margin-top: 2em;
-    background: linear-gradient(90deg, #21ac4b 0%, #0063ae 100%);
+    background:  linear-gradient(90deg, #2cc058 0%, #028CF3 100%);
     font-weight: bold;
     font-size: 1.1em;
 
@@ -805,6 +808,106 @@ background: rgba(31, 31, 31, 0.85);
     justify-content: space-between;
     padding: 20px 15px;
   }
+
+  .session-information-picture{
+    overflow: hidden;
+    position: relative;
+  }
+
+  .session-information-arrow {
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    padding: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color:rgba(41, 41, 41, 0.799);
+  }
+
+  .session-information-arrow:nth-of-type(1) {
+    left: 10px
+  }
+
+  .session-information-arrow:nth-of-type(2) {
+  right: 10px
+  }
+
+
+.session-information-jump-to-picture {
+  margin: 20px auto 0 ;
+  display: flex;
+  justify-content:center;
+  text-align:center;
+  flex-direction: row;
+}
+
+.slide-options-pointer{
+  margin: 4px 12px 25px;
+  width: 14px;
+  height: 14px;
+  background-color: #F7F7F7;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  transform-origin: center;
+}
+
+.slide-options-pointer:hover {
+  background-color: #00dd42;
+  transform: scale(1.5);
+}
+
+.slide-options-pointer:active {
+  background-color: #028CF3;
+  transition: none;
+  transform: scale(2);
+}
+
+.session-information-members {
+  padding: 20px;
+  width: 450px;
+}
+
+ .active-member-icon{
+  margin-left: -8px;
+  background: #3CFF76;
+  white-space: nowrap;
+  height: 20px;
+  width: 22px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.session-join-container {
+  display: flex;
+  margin: 75px auto ;
+
+}
+
+.session-join{
+  background-color: #2a2a2a;
+  border-radius: 45px;
+  padding: 20px 45px;
+  margin: 0 auto;
+  border: none;
+  font-size: 1.3em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+
+
+.session-join:hover {
+  background:  linear-gradient(90deg, #3CFF76 0%, #028CF3 100%);
+  transform: scale(1.3);
+}
+
+
+
 
 .button-icon{
   background: none;

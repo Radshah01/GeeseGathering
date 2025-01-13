@@ -36,7 +36,8 @@ const TopicTracker = (props) => {
           };
 
     return(
-        <div className={`tracker-topic-tile ${isCollapsed ? 'collapsed' : ''}`}>            <div className="tracker-topic-tile-header">
+        <div className={`tracker-topic-tile ${isCollapsed ? 'collapsed' : ''}`}> 
+           <div className="tracker-topic-tile-header">
                 <div className="tracker-topic-tile-header-title" style={{color: props.topicColor}}>{props.name}</div>
                 <div className="tracker-topic-tile-header-stats">
                     <div className="tracker-topic-tile-header-time" style={{color: props.topicColor}}>{convertTimeFormat(props.totalTimeSpent)}</div>

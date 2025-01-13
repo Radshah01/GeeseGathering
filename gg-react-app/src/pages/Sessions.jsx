@@ -34,10 +34,10 @@ const Sessions = () => {
                             <div className= {`sessions-pane-toggle-view ${isCollapsed ? 'rotated' : ''}`} onClick={toggleView}><img src="src/assets/left-align.png"></img></div>
                             <SessionTopicSelection/> 
                             <div className="sessions-left-pane-content">
-                                <SessionTopicTrackerTile sessionStatus = "Active"/>
-                                <SessionTopicTrackerTile sessionStatus = "Idle"/>
+                                <SessionTopicTrackerTile sessions={sessions}  setSelectedSessionID={setSelectedSessionID} sessionStatus = "Active"/>
+                                <SessionTopicTrackerTile sessions={sessions}  setSelectedSessionID={setSelectedSessionID} sessionStatus = "Idle"/>
                             </div> 
-                            <SessionInformation selectedSessionID={selectedSessionID}/>        
+                            <SessionInformation  sessions={sessions}  selectedSessionID={selectedSessionID}/>        
                         </div>
                     </div>              
                 </div>          

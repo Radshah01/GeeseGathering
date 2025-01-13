@@ -770,7 +770,6 @@ background: rgba(31, 31, 31, 0.85);
   border-radius: 36px;
   width: 450px;
   height: 901px;
-  padding: 20px;
   padding-bottom: auto;
   position: absolute;
   top: 901px;
@@ -782,6 +781,30 @@ background: rgba(31, 31, 31, 0.85);
     top: 0px;
     transition: transform 0.3s ease, top 0.7s ease;
     }
+
+
+  .session-close-information {
+    font-size: 1.25em;
+    cursor: pointer;
+    display: inline-block;
+    padding: 25px;
+  }
+
+  .session-information-header{
+    margin-top: 2em;
+    background: linear-gradient(90deg, #21ac4b 0%, #0063ae 100%);
+    font-weight: bold;
+    font-size: 1.1em;
+
+
+  }
+
+  .session-information-course-location{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 15px;
+  }
 
 .button-icon{
   background: none;

@@ -38,12 +38,12 @@ const SessionTopicTrackerTile = (props) => {
                         </tr>   
                     </thead>
                     <tbody className="tracker-topic-tile-content-table-tbody">
-                        {sessions.map((session) => (
+                        {props.sessions.map((session) => (
                             <tr key={session.id} onClick={() => {
                                 const sessionInformation = document.querySelector(".sessions-selected-session");
                                 sessionInformation.classList.add("show");
 
-                                setSelectedSessionID(session.id);
+                                props.setSelectedSessionID(session.id);
                             }}>
                                 <td>{session.course}</td>
                                 <td>{session.location}</td>

@@ -1,7 +1,7 @@
 import propTypes from 'prop-types'
 import React, {useState} from 'react';
 
-const SessionInformation = ({selectedSessionID}) => {
+const SessionInformation = ({sessions, selectedSessionID}) => {
 
 
   
@@ -17,8 +17,8 @@ const SessionInformation = ({selectedSessionID}) => {
                 {selectedSessionID && 
                      sessions.filter(session => session.id === selectedSessionID)
                             .map(selectedSession => (
-                            <div key={selectedSession.id}>
-                                <div>{selectedSession.name}</div>
+                            <div className='session-information-course-location' key={selectedSession.id}>
+                                <div>{selectedSession.course}</div>
                                 <div>{selectedSession.location}</div>
                             </div>
                             ))

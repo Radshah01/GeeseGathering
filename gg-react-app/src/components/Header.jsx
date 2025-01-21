@@ -12,6 +12,7 @@ const Header = () => {
                     <ul className="navbar-menu">
                         <li><a href="/">Home</a></li>
                         <li><a href="/sessions">Sessions</a></li>
+                        <li><a href="/friends">Friends</a></li>
 
                     </ul>
                 </nav>

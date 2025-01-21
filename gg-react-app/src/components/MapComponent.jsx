@@ -10,15 +10,15 @@ const MapComponent = () => {
     const mapRef = useRef(null);
 
     const markerRoomLocations = [
-      { lng: -79.2625, lat: 43.0147, title: "Location 1" },
-      { lng: -79.262, lat: 43.014, title: "Location 2" },
-      { lng: -79.26295, lat: 43.01407, title: "Location 3" },
-      { lng: -79.2626, lat: 43.01375, title: "Location 4" },
-      { lng: -79.26349, lat: 43.0142, title: "Location 5" },
-      { lng: -79.2639, lat: 43.0154, title: "Location 6" },
-      { lng: -79.26245, lat: 43.0153, title: "Location 7" },
-      { lng: -79.26455, lat: 43.01485, title: "Location 8" },
-      { lng: -79.26455, lat: 43.01415, title: "Location 9" },
+      { lng: -79.2625, lat: 43.0147, title: "M216" },
+      { lng: -79.262, lat: 43.014, title: "AH140" },
+      { lng: -79.26295, lat: 43.01407, title: "L4" },
+      { lng: -79.2626, lat: 43.01375, title: "AH165" },
+      { lng: -79.26349, lat: 43.0142, title: "L8" },
+      { lng: -79.2639, lat: 43.0154, title: "S300" },
+      { lng: -79.26245, lat: 43.0153, title: "M112" },
+      { lng: -79.26455, lat: 43.01485, title: "V114" },
+      { lng: -79.26455, lat: 43.01415, title: "V107" },
     ];
 
     
